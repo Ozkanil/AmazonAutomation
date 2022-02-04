@@ -67,6 +67,9 @@ public class AddProductToCart {
     @FindBy(id = "a-autoid-28-announce")
     public WebElement signInToCheckEligibility;
 
+    @FindBy(xpath = "//span[@class='a-size-medium a-color-success qa-availability-message']")
+    public WebElement inStockButton;
+
 }
 
 

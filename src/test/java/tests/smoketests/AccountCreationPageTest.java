@@ -13,7 +13,7 @@ public class AccountCreationPageTest {
     CreateAccountPage createAccountPage;
 
     @Test
-    public void accountCreationPageTest(){
+    public void accountCreationPageTest() throws InterruptedException {
 
         createAccountPage=new CreateAccountPage();
 
@@ -22,10 +22,11 @@ public class AccountCreationPageTest {
         ReusableMethods.hover(createAccountPage.signInTab);
 
         createAccountPage.startHereText.click();
-        createAccountPage.nameBox.sendKeys(Faker.instance().name().fullName());
-        createAccountPage.emailBox.sendKeys(Faker.instance().internet().emailAddress());
-        createAccountPage.passwordBox.sendKeys(Faker.instance().internet().password());
-        createAccountPage.passwordCheck.sendKeys(Faker.instance().internet().password());
+        createAccountPage.nameBox.sendKeys("name");
+        Thread.sleep(3000);
+        createAccountPage.emailBox.sendKeys("test@gmail.com");
+        createAccountPage.passwordBox.sendKeys("Test.12345");
+        createAccountPage.passwordCheck.sendKeys("Test.12345");
         createAccountPage.continueButton.click();
         Assert.assertTrue(createAccountPage.passwordAlertText.isDisplayed());
         createAccountPage.signInText.click();
